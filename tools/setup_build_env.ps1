@@ -188,7 +188,7 @@ if ($SetupRunner) {
     # Configure runner
     Write-Host "  Configuring runner for $GitHubRepo..." -ForegroundColor Gray
     Push-Location $runnerDir
-    & .\config.cmd --url "https://github.com/$GitHubRepo" --token $RunnerToken --name "kok3-vs2005-builder" --labels "self-hosted,windows,vs2005" --runasservice
+    & .\config.cmd --unattended --url "https://github.com/$GitHubRepo" --token $RunnerToken --name "kok3-vs2005-builder" --labels "self-hosted,windows,vs2005" --runasservice
     Pop-Location
     
     Write-Host "  [OK] Runner configured and registered!" -ForegroundColor Green
