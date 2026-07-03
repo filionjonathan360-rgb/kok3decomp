@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="WE"
+	ProjectGUID="{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+	RootNamespace="WE"
+	Keyword="Win32Proj"
+	>
+	<Platforms>
+		<Platform Name="Win32"/>
+	</Platforms>
+	<ToolFiles/>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="1"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="src;include;$(DXSDK_DIR)\Include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib ws2_32.lib"
+				OutputFile="$(OutDir)\WE.exe"
+				AdditionalLibraryDirectories="$(DXSDK_DIR)\Lib\x86"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)\WE.pdb"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
+			<Tool Name="VCResourceCompilerTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="1"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				AdditionalIncludeDirectories="src;include;$(DXSDK_DIR)\Include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib ws2_32.lib"
+				OutputFile="$(OutDir)\WE.exe"
+				AdditionalLibraryDirectories="$(DXSDK_DIR)\Lib\x86"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)\WE.pdb"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
+			<Tool Name="VCResourceCompilerTool"/>
+		</Configuration>
+	</Configurations>
+	<References/>
+	<Files>		<Filter Name="Source Files">
+			<File RelativePath="src\apihackcheck.cpp"/>
+			<File RelativePath="src\cgamelanguage.cpp"/>
+			<File RelativePath="src\cselectplayer.cpp"/>
+			<File RelativePath="src\cworldinfo.cpp"/>
+			<File RelativePath="src\gkk2.cpp"/>
+			<File RelativePath="src\texturecache.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\audio">
+			<File RelativePath="src\audio\caudiobase.cpp"/>
+			<File RelativePath="src\audio\caudiocreate.cpp"/>
+			<File RelativePath="src\audio\caudiomanage.cpp"/>
+			<File RelativePath="src\audio\cezmp3.cpp"/>
+			<File RelativePath="src\audio\csound.cpp"/>
+			<File RelativePath="src\audio\cwavaudio.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\buffer">
+			<File RelativePath="src\buffer\crenderbuffer.cpp"/>
+			<File RelativePath="src\buffer\crenderbuffermanage.cpp"/>
+			<File RelativePath="src\buffer\vertexbufferdx9.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\casualgame">
+			<File RelativePath="src\casualgame\cgameddr.cpp"/>
+			<File RelativePath="src\casualgame\gamecolortest.cpp"/>
+			<File RelativePath="src\casualgame\gamememcard.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\casualgamelibrary">
+			<File RelativePath="src\casualgamelibrary\casualgplatform.h"/>
+		</Filter>
+		<Filter Name="Source Files\chatwindow">
+			<File RelativePath="src\chatwindow\chatwindow.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\directxclass">
+			<File RelativePath="src\directxclass\diutil.cpp"/>
+			<File RelativePath="src\directxclass\getdxver.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\effect">
+			<File RelativePath="src\effect\c3dsmaxparticle.cpp"/>
+			<File RelativePath="src\effect\cchaineffect.cpp"/>
+			<File RelativePath="src\effect\cmodeleffect.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\filesystemlib">
+			<File RelativePath="src\filesystemlib\packfileobj.cpp"/>
+			<File RelativePath="src\filesystemlib\stdiofileobj.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\gameglobal">
+			<File RelativePath="src\gameglobal\cchatlogmanager.cpp"/>
+			<File RelativePath="src\gameglobal\cdoublecastmanager.cpp"/>
+			<File RelativePath="src\gameglobal\cgameglobal.cpp"/>
+			<File RelativePath="src\gameglobal\cpartybuffermanager.cpp"/>
+			<File RelativePath="src\gameglobal\cracecarinfo.cpp"/>
+			<File RelativePath="src\gameglobal\cstaller.cpp"/>
+			<File RelativePath="src\gameglobal\ctransferitem.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\gamerecorder">
+			<File RelativePath="src\gamerecorder\record.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\inputcontrol">
+			<File RelativePath="src\inputcontrol\inputcontrol.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\interface">
+			<File RelativePath="src\interface\cd3dfont.cpp"/>
+			<File RelativePath="src\interface\cskicontable.cpp"/>
+			<File RelativePath="src\interface\csystemsms.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\interface\component">
+			<File RelativePath="src\interface\component\cguibuttonbase.cpp"/>
+			<File RelativePath="src\interface\component\cguicombobox.cpp"/>
+			<File RelativePath="src\interface\component\cguicomponent.cpp"/>
+			<File RelativePath="src\interface\component\cguiedit.cpp"/>
+			<File RelativePath="src\interface\component\cguiedit32.cpp"/>
+			<File RelativePath="src\interface\component\cguieditx.cpp"/>
+			<File RelativePath="src\interface\component\cguiezlayout.cpp"/>
+			<File RelativePath="src\interface\component\cguiinfo.cpp"/>
+			<File RelativePath="src\interface\component\cguilistbox.cpp"/>
+			<File RelativePath="src\interface\component\cguimemo.cpp"/>
+			<File RelativePath="src\interface\component\cguimenu.cpp"/>
+			<File RelativePath="src\interface\component\cguipanelarray.cpp"/>
+			<File RelativePath="src\interface\component\cguiprogressbar.cpp"/>
+			<File RelativePath="src\interface\component\cguireport.cpp"/>
+			<File RelativePath="src\interface\component\cguiscrollbar.cpp"/>
+			<File RelativePath="src\interface\component\cguitrackbar.cpp"/>
+			<File RelativePath="src\interface\component\clayoutpanel.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\interface\component\hd">
+			<File RelativePath="src\interface\component\hd\chanchorgroup.cpp"/>
+			<File RelativePath="src\interface\component\hd\chdocument.cpp"/>
+			<File RelativePath="src\interface\component\hd\chparse.cpp"/>
+			<File RelativePath="src\interface\component\hd\chparsebase.cpp"/>
+			<File RelativePath="src\interface\component\hd\chview.cpp"/>
+			<File RelativePath="src\interface\component\hd\chviewkernel.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\interface\driver">
+			<File RelativePath="src\interface\driver\cguicanvasd3d.cpp"/>
+			<File RelativePath="src\interface\driver\cguifont32.cpp"/>
+			<File RelativePath="src\interface\driver\cguilinebreaker.cpp"/>
+			<File RelativePath="src\interface\driver\cguisurface.cpp"/>
+			<File RelativePath="src\interface\driver\cguitexture.cpp"/>
+			<File RelativePath="src\interface\driver\citemtag.cpp"/>
+			<File RelativePath="src\interface\driver\ctexttagmanager.cpp"/>
+			<File RelativePath="src\interface\driver\getfontnamefromfile.cpp"/>
+			<File RelativePath="src\interface\driver\cguicanvasd3d.h"/>
+			<File RelativePath="src\interface\driver\cguifont32.h"/>
+		</Filter>
+		<Filter Name="Source Files\interface\gamefont">
+			<File RelativePath="src\interface\gamefont\gamefontbmp.cpp"/>
+			<File RelativePath="src\interface\gamefont\gamefontcollection.cpp"/>
+			<File RelativePath="src\interface\gamefont\gamefontmanager.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\interface\gameui">
+			<File RelativePath="src\interface\gameui\cdesktopgame.cpp"/>
+			<File RelativePath="src\interface\gameui\cdesktopmain.cpp"/>
+			<File RelativePath="src\interface\gameui\cformarmymanage.cpp"/>
+			<File RelativePath="src\interface\gameui\cformassiststone.cpp"/>
+			<File RelativePath="src\interface\gameui\cformauction.cpp"/>
+			<File RelativePath="src\interface\gameui\cformautoskill.cpp"/>
+			<File RelativePath="src\interface\gameui\cformbackpack.cpp"/>
+			<File RelativePath="src\interface\gameui\cformbarracks.cpp"/>
+			<File RelativePath="src\interface\gameui\cformchat.cpp"/>
+			<File RelativePath="src\interface\gameui\cformchatroom.cpp"/>
+			<File RelativePath="src\interface\gameui\cformcountryfunction.cpp"/>
+			<File RelativePath="src\interface\gameui\cformdailyquest.cpp"/>
+			<File RelativePath="src\interface\gameui\cformdebuginfo.cpp"/>
+			<File RelativePath="src\interface\gameui\cformdepot.cpp"/>
+			<File RelativePath="src\interface\gameui\cformdragonbreed.cpp"/>
+			<File RelativePath="src\interface\gameui\cformdragoncrystal.cpp"/>
+			<File RelativePath="src\interface\gameui\cformeqenehase.cpp"/>
+			<File RelativePath="src\interface\gameui\cformequip.cpp"/>
+			<File RelativePath="src\interface\gameui\cformequipillusion.cpp"/>
+			<File RelativePath="src\interface\gameui\cformequipmake.cpp"/>
+			<File RelativePath="src\interface\gameui\cformexchange.cpp"/>
+			<File RelativePath="src\interface\gameui\cformfeeling.cpp"/>
+			<File RelativePath="src\interface\gameui\cformforum.cpp"/>
+			<File RelativePath="src\interface\gameui\cformgemmake.cpp"/>
+			<File RelativePath="src\interface\gameui\cformherdmonster.cpp"/>
+			<File RelativePath="src\interface\gameui\cformhero.cpp"/>
+			<File RelativePath="src\interface\gameui\cformheroselect.cpp"/>
+			<File RelativePath="src\interface\gameui\cforminput.cpp"/>
+			<File RelativePath="src\interface\gameui\cformiqtest.cpp"/>
+			<File RelativePath="src\interface\gameui\cformitemgather.cpp"/>
+			<File RelativePath="src\interface\gameui\cformkingdomdata.cpp"/>
+			<File RelativePath="src\interface\gameui\cformkingdompowerset.cpp"/>
+			<File RelativePath="src\interface\gameui\cformladder.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmacroedit.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmail.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmap.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmbuildinglayout.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmissionlist.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmobbook.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmuformmore.cpp"/>
+			<File RelativePath="src\interface\gameui\cformmultiuse.cpp"/>
+			<File RelativePath="src\interface\gameui\cformnewmultiuse.cpp"/>
+			<File RelativePath="src\interface\gameui\cformparty.cpp"/>
+			<File RelativePath="src\interface\gameui\cformpartytask.cpp"/>
+			<File RelativePath="src\interface\gameui\cformpet.cpp"/>
+			<File RelativePath="src\interface\gameui\cformpetendadopt.cpp"/>
+			<File RelativePath="src\interface\gameui\cformprice.cpp"/>
+			<File RelativePath="src\interface\gameui\cformquest.cpp"/>
+			<File RelativePath="src\interface\gameui\cformreward.cpp"/>
+			<File RelativePath="src\interface\gameui\cformroom.cpp"/>
+			<File RelativePath="src\interface\gameui\cformroomlayout.cpp"/>
+			<File RelativePath="src\interface\gameui\cformroulette.cpp"/>
+			<File RelativePath="src\interface\gameui\cformrunbar.cpp"/>
+			<File RelativePath="src\interface\gameui\cformsk.cpp"/>
+			<File RelativePath="src\interface\gameui\cformspctrl.cpp"/>
+			<File RelativePath="src\interface\gameui\cformstallman.cpp"/>
+			<File RelativePath="src\interface\gameui\cformsuitshow.cpp"/>
+			<File RelativePath="src\interface\gameui\cformtankproduce.cpp"/>
+			<File RelativePath="src\interface\gameui\cformtimerecorder.cpp"/>
+			<File RelativePath="src\interface\gameui\cformtooltip.cpp"/>
+			<File RelativePath="src\interface\gameui\cformwarrecord.cpp"/>
+			<File RelativePath="src\interface\gameui\cformwatchplayer.cpp"/>
+			<File RelativePath="src\interface\gameui\cformworldmap.cpp"/>
+			<File RelativePath="src\interface\gameui\cuserinterface.cpp"/>
+			<File RelativePath="src\interface\gameui\cformauction.h"/>
+			<File RelativePath="src\interface\gameui\cformequip.h"/>
+		</Filter>
+		<Filter Name="Source Files\interface\kernel">
+			<File RelativePath="src\interface\kernel\cguikernel.cpp"/>
+			<File RelativePath="src\interface\kernel\cguiloader.cpp"/>
+			<File RelativePath="src\interface\kernel\formlist.cpp"/>
+			<File RelativePath="src\interface\kernel\formproperty.cpp"/>
+			<File RelativePath="src\interface\kernel\formtools.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\model">
+			<File RelativePath="src\model\canimation.cpp"/>
+			<File RelativePath="src\model\canimationaction.cpp"/>
+			<File RelativePath="src\model\cequipmodel.cpp"/>
+			<File RelativePath="src\model\cequipmodeldb.cpp"/>
+			<File RelativePath="src\model\cmeshmodel.cpp"/>
+			<File RelativePath="src\model\cmeshmodeldb.cpp"/>
+			<File RelativePath="src\model\cmeshserializer.cpp"/>
+			<File RelativePath="src\model\cskeletonhierarchy.cpp"/>
+			<File RelativePath="src\model\cskeletonserializer.cpp"/>
+			<File RelativePath="src\model\cskinnedcharacterequippart.cpp"/>
+			<File RelativePath="src\model\cskinnedcharactermodel.cpp"/>
+			<File RelativePath="src\model\cstop.cpp"/>
+			<File RelativePath="src\model\csubmeshserializer.cpp"/>
+			<File RelativePath="src\model\cthingmesh.cpp"/>
+			<File RelativePath="src\model\cthingmeshdb.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\network">
+			<File RelativePath="src\network\beingprotocolmanager.cpp"/>
+			<File RelativePath="src\network\cgamenet.cpp"/>
+			<File RelativePath="src\network\cnetpacket.cpp"/>
+			<File RelativePath="src\network\cnetprotocol.cpp"/>
+			<File RelativePath="src\network\cnetwork.cpp"/>
+			<File RelativePath="src\network\mudclientfunctions.cpp"/>
+			<File RelativePath="src\network\muddatamixedtype.cpp"/>
+			<File RelativePath="src\network\mudserverfunctions.cpp"/>
+			<File RelativePath="src\network\netlzss.cpp"/>
+			<File RelativePath="src\network\netpacketv3.cpp"/>
+			<File RelativePath="src\network\cnetwork.h"/>
+			<File RelativePath="src\network\mudclientfunctions.h"/>
+		</Filter>
+		<Filter Name="Source Files\pathfinding">
+			<File RelativePath="src\pathfinding\areacellconstructor.cpp"/>
+			<File RelativePath="src\pathfinding\mappathfinding.cpp"/>
+			<File RelativePath="src\pathfinding\wowopathfinding.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\playerprop">
+			<File RelativePath="src\playerprop\cactionitem.cpp"/>
+			<File RelativePath="src\playerprop\cautoskillmanager.cpp"/>
+			<File RelativePath="src\playerprop\cbaseitem.cpp"/>
+			<File RelativePath="src\playerprop\cbeingprop.cpp"/>
+			<File RelativePath="src\playerprop\cchatroommaster.cpp"/>
+			<File RelativePath="src\playerprop\cdance.cpp"/>
+			<File RelativePath="src\playerprop\cemotionitem.cpp"/>
+			<File RelativePath="src\playerprop\ceqsuititem.cpp"/>
+			<File RelativePath="src\playerprop\cequipment.cpp"/>
+			<File RelativePath="src\playerprop\cfamilyjoin.cpp"/>
+			<File RelativePath="src\playerprop\cfamilypost.cpp"/>
+			<File RelativePath="src\playerprop\cfamilypostdata.cpp"/>
+			<File RelativePath="src\playerprop\cfurniture.cpp"/>
+			<File RelativePath="src\playerprop\cherolog.cpp"/>
+			<File RelativePath="src\playerprop\chotkey.cpp"/>
+			<File RelativePath="src\playerprop\ckillmobexpmanager.cpp"/>
+			<File RelativePath="src\playerprop\cmacroitem.cpp"/>
+			<File RelativePath="src\playerprop\cmacrolist.cpp"/>
+			<File RelativePath="src\playerprop\cmaillist.cpp"/>
+			<File RelativePath="src\playerprop\cparty.cpp"/>
+			<File RelativePath="src\playerprop\cpktype.cpp"/>
+			<File RelativePath="src\playerprop\cpropsideline.cpp"/>
+			<File RelativePath="src\playerprop\cpropskills.cpp"/>
+			<File RelativePath="src\playerprop\cquestlog.cpp"/>
+			<File RelativePath="src\playerprop\craceitem.cpp"/>
+			<File RelativePath="src\playerprop\crelapeople.cpp"/>
+			<File RelativePath="src\playerprop\crelation.cpp"/>
+			<File RelativePath="src\playerprop\cskillset.cpp"/>
+			<File RelativePath="src\playerprop\cskillstatus.cpp"/>
+			<File RelativePath="src\playerprop\ctanklist.cpp"/>
+			<File RelativePath="src\playerprop\ctargetitem.cpp"/>
+			<File RelativePath="src\playerprop\ctimeitem.cpp"/>
+			<File RelativePath="src\playerprop\cwarstate.cpp"/>
+			<File RelativePath="src\playerprop\daemonpet.cpp"/>
+			<File RelativePath="src\playerprop\daemonpetaimode.cpp"/>
+			<File RelativePath="src\playerprop\cpropskills.h"/>
+			<File RelativePath="src\playerprop\cquestlog.h"/>
+			<File RelativePath="src\playerprop\crelation.h"/>
+		</Filter>
+		<Filter Name="Source Files\playerprop\specialskill">
+			<File RelativePath="src\playerprop\specialskill\cspskill.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\portrait">
+			<File RelativePath="src\portrait\portraitmanager.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\scene">
+			<File RelativePath="src\scene\beingnametag.cpp"/>
+			<File RelativePath="src\scene\c3dsmaxparticlerender.cpp"/>
+			<File RelativePath="src\scene\cafterimage.cpp"/>
+			<File RelativePath="src\scene\cbeing.cpp"/>
+			<File RelativePath="src\scene\cbeingdb.cpp"/>
+			<File RelativePath="src\scene\cbeingrender.cpp"/>
+			<File RelativePath="src\scene\cbeingtalktagtexturemanager.cpp"/>
+			<File RelativePath="src\scene\ccliffrender.cpp"/>
+			<File RelativePath="src\scene\cd3dbillboard.cpp"/>
+			<File RelativePath="src\scene\cdecalmapmanager.cpp"/>
+			<File RelativePath="src\scene\cdecalrender.cpp"/>
+			<File RelativePath="src\scene\cdistrender.cpp"/>
+			<File RelativePath="src\scene\cequipphotomanager.cpp"/>
+			<File RelativePath="src\scene\cequiprender.cpp"/>
+			<File RelativePath="src\scene\cfogmanage.cpp"/>
+			<File RelativePath="src\scene\cgametimer.cpp"/>
+			<File RelativePath="src\scene\cheathazemanager.cpp"/>
+			<File RelativePath="src\scene\clightdata.cpp"/>
+			<File RelativePath="src\scene\clightmanage.cpp"/>
+			<File RelativePath="src\scene\clights.cpp"/>
+			<File RelativePath="src\scene\cqtree.cpp"/>
+			<File RelativePath="src\scene\crender.cpp"/>
+			<File RelativePath="src\scene\cscene.cpp"/>
+			<File RelativePath="src\scene\cshorewaverender.cpp"/>
+			<File RelativePath="src\scene\cskydomecloud.cpp"/>
+			<File RelativePath="src\scene\cstatusscreeneffect.cpp"/>
+			<File RelativePath="src\scene\cthing.cpp"/>
+			<File RelativePath="src\scene\cthingdb.cpp"/>
+			<File RelativePath="src\scene\ctreasuremanager.cpp"/>
+			<File RelativePath="src\scene\cwaterrender.cpp"/>
+			<File RelativePath="src\scene\cweathersystem.cpp"/>
+			<File RelativePath="src\scene\dpatkctrl.cpp"/>
+			<File RelativePath="src\scene\hurtdigits.cpp"/>
+			<File RelativePath="src\scene\ipaperdoll.cpp"/>
+			<File RelativePath="src\scene\primitiverendersfactory.cpp"/>
+			<File RelativePath="src\scene\thingfloormesh.cpp"/>
+			<File RelativePath="src\scene\cbeing.h"/>
+			<File RelativePath="src\scene\cfnlabor.h"/>
+			<File RelativePath="src\scene\cmaterialanimator.h"/>
+			<File RelativePath="src\scene\hurtdigits.h"/>
+			<File RelativePath="src\scene\imanualprimitivesrender.h"/>
+		</Filter>
+		<Filter Name="Source Files\scriptingmodules">
+			<File RelativePath="src\scriptingmodules\cscriptbindingcommon.cpp"/>
+			<File RelativePath="src\scriptingmodules\cscriptmodule.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\shader">
+			<File RelativePath="src\shader\ceffectshader.cpp"/>
+			<File RelativePath="src\shader\csimhdr.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\share">
+			<File RelativePath="src\share\bclasses.cpp"/>
+			<File RelativePath="src\share\cffieldmanage.cpp"/>
+			<File RelativePath="src\share\cfilefield.cpp"/>
+			<File RelativePath="src\share\cloginsetting.cpp"/>
+			<File RelativePath="src\share\cobserver.cpp"/>
+			<File RelativePath="src\share\ctools.cpp"/>
+			<File RelativePath="src\share\cxmlonlpq.cpp"/>
+			<File RelativePath="src\share\hashmap.cpp"/>
+			<File RelativePath="src\share\tinyxmlonlpq.cpp"/>
+			<File RelativePath="src\share\ctpool.h"/>
+		</Filter>
+		<Filter Name="Source Files\share\nhelper">
+			<File RelativePath="src\share\nhelper\btlist.cpp"/>
+			<File RelativePath="src\share\nhelper\btstream.cpp"/>
+			<File RelativePath="src\share\nhelper\cbasereader.cpp"/>
+			<File RelativePath="src\share\nhelper\cfont32.cpp"/>
+			<File RelativePath="src\share\nhelper\ezstring.cpp"/>
+			<File RelativePath="src\share\nhelper\nhelper.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\speedtreert\commonsource">
+			<File RelativePath="src\speedtreert\commonsource\idvgeometrybuffer.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\idvshadermanager.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\idvstate.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\idvtexture.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreecullengine.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreeforest.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreeinstance.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreewrapper.cpp"/>
+			<File RelativePath="src\speedtreert\commonsource\idvdirectx9.h"/>
+			<File RelativePath="src\speedtreert\commonsource\idvgeometrybuffer.h"/>
+			<File RelativePath="src\speedtreert\commonsource\idvmaterial.h"/>
+			<File RelativePath="src\speedtreert\commonsource\idvtexture.h"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreecullengine.h"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreeinstance.h"/>
+			<File RelativePath="src\speedtreert\commonsource\speedtreewrapper.h"/>
+			<File RelativePath="src\speedtreert\commonsource\speedwind2.h"/>
+		</Filter>
+		<Filter Name="Source Files\speedtreert\include">
+			<File RelativePath="src\speedtreert\include\speedtreememory.h"/>
+		</Filter>
+		<Filter Name="Source Files\terrain">
+			<File RelativePath="src\terrain\cdistrict.cpp"/>
+			<File RelativePath="src\terrain\clifftable.cpp"/>
+			<File RelativePath="src\terrain\cmbuilding.cpp"/>
+			<File RelativePath="src\terrain\cmterritory.cpp"/>
+			<File RelativePath="src\terrain\cterrain.cpp"/>
+			<File RelativePath="src\terrain\terrainimporter.cpp"/>
+			<File RelativePath="src\terrain\terrainmeshgridnode.cpp"/>
+			<File RelativePath="src\terrain\terrainshadowmap.cpp"/>
+			<File RelativePath="src\terrain\terrainstoppoint.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\texture">
+			<File RelativePath="src\texture\ctexture.cpp"/>
+			<File RelativePath="src\texture\cwater.cpp"/>
+		</Filter>
+		<Filter Name="Source Files\thread">
+			<File RelativePath="src\thread\cjobmanager.cpp"/>
+		</Filter>
+	</Files>
+	<Globals/>
+</VisualStudioProject>

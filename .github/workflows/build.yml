@@ -1,0 +1,138 @@
+name: Build with VS 2005 SP1
+
+# This workflow requires a self-hosted Windows runner with Visual Studio 2005 SP1 installed.
+# GitHub-hosted runners do NOT include VS 2005. You must set up your own runner.
+#
+# Self-hosted runner setup:
+#   1. Provision a Windows VM (Windows 10/11 or Server 2019+)
+#   2. Install Visual Studio 2005 Professional + SP1
+#   3. Install DirectX SDK (June 2006+)
+#   4. Install Platform SDK for Windows Server 2003 SP1
+#   5. Register the VM as a GitHub Actions self-hosted runner
+#      (Settings > Actions > Runners > New self-hosted runner)
+#   6. Apply the label "vs2005" to the runner
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Path to VS 2005 vcvarsall.bat — adjust for your runner's install path
+  VS2005_VCVARS: 'C:\Program Files (x86)\Microsoft Visual Studio 8\VC\vcvarsall.bat'
+  # DirectX SDK path
+  DXSDK_DIR: 'C:\Program Files (x86)\Microsoft DirectX SDK (June 2006)'
+
+jobs:
+  build-debug:
+    name: Build (Debug)
+    runs-on: [self-hosted, windows, vs2005]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup VS 2005 Environment
+        shell: cmd
+        run: |
+          call "${{ env.VS2005_VCVARS }}" x86
+          cl.exe 2>&1 | findstr /C:"Version"
+          echo Compiler version verified
+      
+      - name: Build Debug
+        shell: cmd
+        run: |
+          call "${{ env.VS2005_VCVARS }}" x86
+          msbuild WE.sln /p:Configuration=Debug /p:Platform=Win32 /m
+      
+      - name: Upload Build Artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-build
+          path: |
+            Debug/*.exe
+            Debug/*.pdb
+          retention-days: 14
+
+  build-release:
+    name: Build (Release)
+    runs-on: [self-hosted, windows, vs2005]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup VS 2005 Environment
+        shell: cmd
+        run: |
+          call "${{ env.VS2005_VCVARS }}" x86
+          cl.exe 2>&1 | findstr /C:"Version"
+      
+      - name: Build Release
+        shell: cmd
+        run: |
+          call "${{ env.VS2005_VCVARS }}" x86
+          msbuild WE.sln /p:Configuration=Release /p:Platform=Win32 /m
+      
+      - name: Upload Build Artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-build
+          path: |
+            Release/*.exe
+          retention-days: 14
+
+  # Optional: Binary diff verification against reference binary
+  # Requires the reference binaries to be available on the runner
+  verify-match:
+    name: Verify Binary Match
+    needs: [build-release]
+    runs-on: [self-hosted, windows, vs2005]
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-build
+          path: build-output/
+      
+      - name: Binary Diff Check
+        shell: powershell
+        run: |
+          # This script compares the built binary against a reference
+          # The reference binary should be placed at ref/WE.exe on the runner
+          # (not committed to the repo for legal reasons)
+          
+          $refPath = "C:\kok3-ref\WE.exe"
+          $builtPath = "build-output\WE.exe"
+          
+          if (-not (Test-Path $refPath)) {
+            Write-Warning "Reference binary not found at $refPath — skipping match verification"
+            exit 0
+          }
+          
+          if (-not (Test-Path $builtPath)) {
+            Write-Error "Built binary not found"
+            exit 1
+          }
+          
+          $refHash = (Get-FileHash $refPath -Algorithm SHA256).Hash
+          $builtHash = (Get-FileHash $builtPath -Algorithm SHA256).Hash
+          
+          Write-Output "Reference: $refHash"
+          Write-Output "Built:     $builtHash"
+          
+          if ($refHash -eq $builtHash) {
+            Write-Output "✅ PERFECT MATCH — Binary is byte-identical to reference!"
+          } else {
+            Write-Warning "❌ Binaries differ — this is expected during early development"
+            # Don't fail the build for now, just report
+            # exit 1
+          }
