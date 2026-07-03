@@ -6,42 +6,35 @@
 # @toolbar
 
 import os
-import json
+import java.lang.System
 from ghidra.app.decompiler import DecompInterface
 from ghidra.util.task import ConsoleTaskMonitor
 
 def run():
-    # Setup decompiler
-    decomp = DecompInterface()
-    decomp.openProgram(currentProgram)
-    
-    # Define project directory paths
-    # (Modify these paths to match your repository directory layout)
     out_dir = "C:\\Users\\jo\\.gemini\\antigravity\\scratch\\kok3-decomp\\ref"
     pseudocode_dir = os.path.join(out_dir, "pseudocode")
     assembly_dir = os.path.join(out_dir, "assembly")
     
-    # Create directories if they do not exist
     for d in [pseudocode_dir, assembly_dir]:
         if not os.path.exists(d):
             os.makedirs(d)
             
-    # Iterate through all functions in the program
     fm = currentProgram.getFunctionManager()
-    funcs = fm.getFunctions(True) # True = forward order
+    funcs = fm.getFunctions(True)
     
     print("Beginning batch export of functions...")
     count = 0
     
+    decomp = DecompInterface()
+    decomp.openProgram(currentProgram)
+    
     for f in funcs:
-        name = f.getName()
-        addr = f.getEntryPoint()
-        
-        # Skip external/thunk functions
         if f.isThunk():
             continue
             
-        # Group functions by their class name or namespace
+        name = f.getName()
+        addr = f.getEntryPoint()
+        
         class_name = "global"
         parent = f.getParentNamespace()
         if parent and parent.getName() != "global":
@@ -82,7 +75,12 @@ def run():
         count += 1
         if count % 100 == 0:
             print("Exported {} functions...".format(count))
+            decomp.dispose()
+            java.lang.System.gc()
+            decomp = DecompInterface()
+            decomp.openProgram(currentProgram)
             
+    decomp.dispose()
     print("Completed! Exported {} functions to {}.".format(count, out_dir))
 
 run()

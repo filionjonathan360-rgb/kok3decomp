@@ -1,0 +1,60 @@
+Microsoft (R) COFF/PE Dumper Version 8.00.50727.762
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\gamigo\King of Kings 3\WEbug.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following exports for WE.exe
+
+    00000000 characteristics
+    4B303325 time date stamp Mon Dec 21 18:47:01 2009
+        0.00 version
+           1 ordinal base
+          32 number of functions
+          32 number of names
+
+    ordinal hint RVA      name
+
+          1    0 005534CD _EXECryptor_AntiDebug@0
+          2    1 0054ED3D _EXECryptor_DecodeSerialNumber@16
+          3    2 0053A77A _EXECryptor_DecodeSerialNumberW@16
+          4    3 00553AEA _EXECryptor_DecryptStr@8
+          5    4 0055C0E1 _EXECryptor_DecryptStrW@8
+          6    5 0054C06A _EXECryptor_EncryptStr@8
+          7    6 00555B92 _EXECryptor_EncryptStrW@8
+          8    7 005580EF _EXECryptor_GetDate@0
+          9    8 00547691 _EXECryptor_GetEXECryptorVersion@0
+         10    9 0055EA9E _EXECryptor_GetHardwareID@0
+         11    A 005462B9 _EXECryptor_GetProcAddr@8
+         12    B 005423B7 _EXECryptor_GetReleaseDate@0
+         13    C 00541219 _EXECryptor_GetTrialDaysLeft@4
+         14    D 005612C6 _EXECryptor_GetTrialRunsLeft@4
+         15    E 00545274 _EXECryptor_IsAppProtected@0
+         16    F 0055A854 _EXECryptor_IsRegistered@0
+         17   10 0053C976 _EXECryptor_MessageBoxA@16
+         18   11 0055285C _EXECryptor_ProtectImport@0
+         19   12 00549B6C _EXECryptor_RegConst_0@0
+         20   13 005498E2 _EXECryptor_RegConst_1@0
+         21   14 0054990F _EXECryptor_RegConst_2@0
+         22   15 0054D12C _EXECryptor_RegConst_3@0
+         23   16 0054D127 _EXECryptor_RegConst_4@0
+         24   17 0054D3BB _EXECryptor_RegConst_5@0
+         25   18 0054D3CA _EXECryptor_RegConst_6@0
+         26   19 0054D0FA _EXECryptor_RegConst_7@0
+         27   1A 00545111 _EXECryptor_SecureRead@8
+         28   1B 005612C1 _EXECryptor_SecureReadW@8
+         29   1C 00559EA9 _EXECryptor_SecureWrite@8
+         30   1D 00552BEF _EXECryptor_SecureWriteW@8
+         31   1E 0055D9E6 _EXECryptor_VerifySerialNumber@16
+         32   1F 0054DFAA _EXECryptor_VerifySerialNumberW@16
+
+  Summary
+
+       BA000 .data
+        5000 .idata
+      19D000 .rdata
+       5F000 .rsrc
+      ABA000 .text
+      538000 .textbss

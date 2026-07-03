@@ -41,21 +41,6 @@ Desktop.ini
 tools/output/
 tools/temp/
 
-# Reference binaries (do not commit)
-ref/
+# Reference data (allow ref/ but exclude huge files)
+ref/assembly/full_disasm.txt
 *.original.exe
-
-# Archives
-*.zip
-*.7z
-*.rar
-
-# IDA / Ghidra project files
-*.idb
-*.i64
-*.id0
-*.id1
-*.id2
-*.nam
-*.til
-*.rep

@@ -1,0 +1,166 @@
+Microsoft (R) COFF/PE Dumper Version 8.00.50727.762
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file C:\gamigo\King of Kings 3\WEbug.exe
+
+PE signature found
+
+File Type: EXECUTABLE IMAGE
+
+FILE HEADER VALUES
+             14C machine (x86)
+               6 number of sections
+        4B387333 time date stamp Mon Dec 28 00:58:27 2009
+               0 file pointer to symbol table
+               0 number of symbols
+              E0 size of optional header
+             103 characteristics
+                   Relocations stripped
+                   Executable
+                   32 bit word machine
+
+OPTIONAL HEADER VALUES
+             10B magic # (PE32)
+            8.00 linker version
+          ABA000 size of code
+          2BB000 size of initialized data
+               0 size of uninitialized data
+          55B001 entry point (0095B001)
+            1000 base of code
+            1000 base of data
+          400000 image base (00400000 to 016ADFFF)
+            1000 section alignment
+            1000 file alignment
+            4.00 operating system version
+            0.00 image version
+            4.00 subsystem version
+               0 Win32 version
+         12AE000 size of image
+            1000 size of headers
+               0 checksum
+               2 subsystem (Windows GUI)
+               0 DLL characteristics
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+         118F130 [     6D9] RVA [size] of Export Directory
+         124A000 [     1A4] RVA [size] of Import Directory
+         124F000 [   5EC86] RVA [size] of Resource Directory
+               0 [       0] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+               0 [       0] RVA [size] of Base Relocation Directory
+          FF4690 [      1C] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+               0 [       0] RVA [size] of Thread Storage Directory
+               0 [       0] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+         124AD78 [     BD4] RVA [size] of Import Address Table Directory
+               0 [       0] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+.textbss name
+  537739 virtual size
+    1000 virtual address (00401000 to 00938738)
+       0 size of raw data
+       0 file pointer to raw data
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+E00000A0 flags
+         Code
+         Uninitialized Data
+         Execute Read Write
+
+SECTION HEADER #2
+   .text name
+  AB9E07 virtual size
+  539000 virtual address (00939000 to 013F2E06)
+  ABA000 size of raw data
+    1000 file pointer to raw data (00001000 to 00ABAFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #3
+  .rdata name
+  19C809 virtual size
+  FF3000 virtual address (013F3000 to 0158F808)
+  19D000 size of raw data
+  ABB000 file pointer to raw data (00ABB000 to 00C57FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type       Size      RVA  Pointer
+    -------- ------ -------- -------- --------
+    4B303326 cv           31 0111D600   BE5600    Format: RSDS, {4810D192-BB80-4E3B-BF6C-498D492E158A}, 24, c:\WE\trunk\Debug\WE.pdb
+
+SECTION HEADER #4
+   .data name
+   B99C4 virtual size
+ 1190000 virtual address (01590000 to 016499C3)
+   1D000 size of raw data
+  C58000 file pointer to raw data (00C58000 to 00C74FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #5
+  .idata name
+    423F virtual size
+ 124A000 virtual address (0164A000 to 0164E23E)
+    5000 size of raw data
+  C75000 file pointer to raw data (00C75000 to 00C79FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #6
+   .rsrc name
+   5EC86 virtual size
+ 124F000 virtual address (0164F000 to 016ADC85)
+   5F000 size of raw data
+  C7A000 file pointer to raw data (00C7A000 to 00CD8FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Summary
+
+       BA000 .data
+        5000 .idata
+      19D000 .rdata
+       5F000 .rsrc
+      ABA000 .text
+      538000 .textbss
