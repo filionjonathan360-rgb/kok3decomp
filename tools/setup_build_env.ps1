@@ -50,7 +50,7 @@ foreach ($p in $vs2005Paths) {
 }
 
 if ($vs2005Found) {
-    Write-Host "  ✅ Found VS 2005 at: $vs2005Path" -ForegroundColor Green
+    Write-Host "  [OK] Found VS 2005 at: $vs2005Path" -ForegroundColor Green
     
     # Check SP1
     $clPath = "$vs2005Path\VC\bin\cl.exe"
@@ -58,14 +58,14 @@ if ($vs2005Found) {
         $clVersion = (Get-Item $clPath).VersionInfo.FileVersion
         Write-Host "  cl.exe version: $clVersion" -ForegroundColor Gray
         if ($clVersion -match "14\.00\.50727") {
-            Write-Host "  ✅ VS 2005 SP1 confirmed (build 50727)" -ForegroundColor Green
+            Write-Host "  [OK] VS 2005 SP1 confirmed (build 50727)" -ForegroundColor Green
         } else {
-            Write-Host "  ⚠️  cl.exe version doesn't match SP1 (expected 14.00.50727.x)" -ForegroundColor Yellow
+            Write-Host "  [WARN] cl.exe version doesn't match SP1 (expected 14.00.50727.x)" -ForegroundColor Yellow
             Write-Host "     Install VS 2005 SP1 (KB926601)" -ForegroundColor Yellow
         }
     }
 } else {
-    Write-Host "  ❌ Visual Studio 2005 NOT FOUND" -ForegroundColor Red
+    Write-Host "  [ERROR] Visual Studio 2005 NOT FOUND" -ForegroundColor Red
     Write-Host "     Install Visual Studio 2005 Professional + SP1" -ForegroundColor Red
     Write-Host "     Expected at: ${env:ProgramFiles(x86)}\Microsoft Visual Studio 8" -ForegroundColor Gray
 }
@@ -86,15 +86,15 @@ $dxsdkFound = $false
 foreach ($p in ($dxsdkPaths | Where-Object { $_ })) {
     if (Test-Path "$p\Include\d3dx9.h") {
         $dxsdkFound = $true
-        Write-Host "  ✅ Found DirectX SDK at: $p" -ForegroundColor Green
+        Write-Host "  [OK] Found DirectX SDK at: $p" -ForegroundColor Green
         break
     }
 }
 
 if (-not $dxsdkFound) {
-    Write-Host "  ❌ DirectX SDK NOT FOUND" -ForegroundColor Red
+    Write-Host "  [ERROR] DirectX SDK NOT FOUND" -ForegroundColor Red
     Write-Host "     Install DirectX SDK (June 2006 or later)" -ForegroundColor Red
-    Write-Host "     The binary uses d3dx9_30.dll — ensure your SDK version includes this" -ForegroundColor Gray
+    Write-Host "     The binary uses d3dx9_30.dll - ensure your SDK version includes this" -ForegroundColor Gray
 }
 
 # --- Check Platform SDK ---
@@ -112,13 +112,13 @@ $sdkFound = $false
 foreach ($p in $sdkPaths) {
     if (Test-Path "$p\Include\Windows.h") {
         $sdkFound = $true
-        Write-Host "  ✅ Found Platform SDK at: $p" -ForegroundColor Green
+        Write-Host "  [OK] Found Platform SDK at: $p" -ForegroundColor Green
         break
     }
 }
 
 if (-not $sdkFound) {
-    Write-Host "  ⚠️  Platform SDK not found (VS 2005 includes basic headers)" -ForegroundColor Yellow
+    Write-Host "  [WARN] Platform SDK not found (VS 2005 includes basic headers)" -ForegroundColor Yellow
     Write-Host "     For complete compatibility, install Windows Server 2003 SP1 SDK" -ForegroundColor Gray
 }
 
@@ -129,9 +129,9 @@ Write-Host "[4/5] Checking Git..." -ForegroundColor Yellow
 $gitCmd = Get-Command git -ErrorAction SilentlyContinue
 if ($gitCmd) {
     $gitVersion = & git --version
-    Write-Host "  ✅ Git found: $gitVersion" -ForegroundColor Green
+    Write-Host "  [OK] Git found: $gitVersion" -ForegroundColor Green
 } else {
-    Write-Host "  ❌ Git NOT FOUND" -ForegroundColor Red
+    Write-Host "  [ERROR] Git NOT FOUND" -ForegroundColor Red
     Write-Host "     Install Git from https://git-scm.com/" -ForegroundColor Red
 }
 
@@ -143,14 +143,14 @@ Write-Host "======================================" -ForegroundColor Cyan
 
 $allGood = $vs2005Found -and $dxsdkFound -and $gitCmd
 if ($allGood) {
-    Write-Host "  ✅ All required tools found!" -ForegroundColor Green
+    Write-Host "  [OK] All required tools found!" -ForegroundColor Green
     Write-Host ""
     Write-Host "  To build the project:" -ForegroundColor White
     Write-Host "    1. Open a VS 2005 Command Prompt" -ForegroundColor Gray
     Write-Host "    2. cd to the project directory" -ForegroundColor Gray
     Write-Host "    3. Run: msbuild WE.sln /p:Configuration=Debug" -ForegroundColor Gray
 } else {
-    Write-Host "  ⚠️  Some tools are missing. See above for details." -ForegroundColor Yellow
+    Write-Host "  [WARN] Some tools are missing. See above for details." -ForegroundColor Yellow
 }
 
 # --- Optional: GitHub Actions Runner Setup ---
@@ -161,7 +161,7 @@ if ($SetupRunner) {
     Write-Host "======================================" -ForegroundColor Cyan
     
     if (-not $GitHubRepo -or -not $RunnerToken) {
-        Write-Host "  ❌ -GitHubRepo and -RunnerToken are required for runner setup" -ForegroundColor Red
+        Write-Host "  [ERROR] -GitHubRepo and -RunnerToken are required for runner setup" -ForegroundColor Red
         Write-Host "  Usage: .\setup_build_env.ps1 -SetupRunner -GitHubRepo 'owner/repo' -RunnerToken 'TOKEN'" -ForegroundColor Gray
         exit 1
     }
@@ -176,7 +176,7 @@ if ($SetupRunner) {
     
     # Download latest runner
     Write-Host "  Downloading GitHub Actions runner..." -ForegroundColor Gray
-    $runnerUrl = "https://github.com/actions/runner/releases/latest/download/actions-runner-win-x64-2.311.0.zip"
+    $runnerUrl = "https://github.com/actions/runner/releases/download/v2.335.1/actions-runner-win-x64-2.335.1.zip"
     $runnerZip = "$runnerDir\actions-runner.zip"
     
     if (-not (Test-Path "$runnerDir\config.cmd")) {
@@ -191,7 +191,7 @@ if ($SetupRunner) {
     & .\config.cmd --url "https://github.com/$GitHubRepo" --token $RunnerToken --name "kok3-vs2005-builder" --labels "self-hosted,windows,vs2005" --runasservice
     Pop-Location
     
-    Write-Host "  ✅ Runner configured and registered!" -ForegroundColor Green
+    Write-Host "  [OK] Runner configured and registered!" -ForegroundColor Green
     Write-Host "  The runner will start automatically as a Windows service." -ForegroundColor Gray
 }
 
